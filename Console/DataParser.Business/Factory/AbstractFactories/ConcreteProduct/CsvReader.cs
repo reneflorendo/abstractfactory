@@ -7,13 +7,13 @@ namespace DataParser.Business.AbstractFactories
 {
     public class CsvReader : IDataReader
     {
-        public async Task<IEnumerable<string>> ReadData(string path)
+        public IEnumerable<string> ReadData(string path)
         {
             var lines = new List<string>();
             using (var reader = new StreamReader(path))
             {
                 string line;
-                while ((line = await reader.ReadLineAsync()) != null)
+                while ((line = reader.ReadLine()) != null)
                 {
                     lines.Add(line);
                 }

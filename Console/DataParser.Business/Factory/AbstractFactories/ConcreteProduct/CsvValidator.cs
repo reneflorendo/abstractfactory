@@ -19,7 +19,7 @@ namespace DataParser.Business.AbstractFactories
         {
             if (rawData.Any())
             {
-                rawData.Skip(1);
+               rawData= rawData.Skip(1);
 
                 foreach (string rawDataItem in rawData)
                 {
@@ -31,7 +31,6 @@ namespace DataParser.Business.AbstractFactories
                             return false;
                         }
                     }
-
                 }
 
                 return true;

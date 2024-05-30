@@ -1,11 +1,6 @@
-﻿using DataParser.Business.AbstractFactories.Interface;
-using DataParser.Business.Enums;
-using DataParser.Business.AbstractFactories;
+﻿using DataParser.Business.Enums;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataParser.Business.AbstractFactories
 {

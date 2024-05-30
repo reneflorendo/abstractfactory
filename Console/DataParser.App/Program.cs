@@ -10,9 +10,8 @@ using DataParser.Business.Factory.AbstractFactories.ConcreteProduct.ValidationRu
 namespace DataParser.App
 {
     internal class Program
-    {      
-
-        static async Task Main(string[] args)
+    { 
+        static void Main(string[] args)
         {
             string filePath = @"C:\csv\employees.csv";
 
@@ -28,18 +27,21 @@ namespace DataParser.App
                 
                 IDataParser parser = csvFactory.CreateDataParser();
 
-                IEnumerable<string> rawData = await reader.ReadData(filePath);
+                IEnumerable<string> rawData = reader.ReadData(filePath);
           
                 var passValition = validator.Validate(rawData, delimeter);
-                
+
                 if (passValition)
                 {
-                    IEnumerable<Person> persons = await parser.ParseData(rawData, delimeter);
+                    IEnumerable<Person> persons = parser.ParseData(rawData, delimeter);
 
                     foreach (var person in persons)
                     {
                         Console.WriteLine($"Name: {person.Firstname} {person.Lastname}, Age: {person.Age}, Email: {person.Email}");
                     }
+                }
+                else { 
+                Console.Write("eerrr");
                 }
             }
             catch (Exception ex)

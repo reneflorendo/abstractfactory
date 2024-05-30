@@ -9,6 +9,6 @@ namespace DataParser.Business.AbstractFactories.Interface
 {
     public interface IDataReader
     {
-        Task<IEnumerable<string>> ReadData(string path);
+        IEnumerable<string> ReadData(string path);
     }
 }
