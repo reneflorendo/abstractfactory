@@ -1,9 +1,6 @@
-﻿using DataParser.Model;
-using System;
+﻿using DataParser.Business.AbstractFactories.Interface;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DataParser.Business.AbstractFactories

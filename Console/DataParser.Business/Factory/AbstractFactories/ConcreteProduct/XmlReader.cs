@@ -1,4 +1,4 @@
-﻿using DataParser.Business.AbstractFactories.Contracts;
+﻿using DataParser.Business.AbstractFactories.Interface;
 using DataParser.Model;
 using System;
 using System.Collections.Generic;
@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace DataParser.Business.AbstractFactories
 {
-    public class XmlParser : IDataParser
+    public class XmlReader : IDataReader
     {
-        public Task<IEnumerable<Person>> ParseData(IEnumerable<string> rawData)
+        public Task<IEnumerable<string>> ReadData(string path)
         {
             throw new NotImplementedException();
         }

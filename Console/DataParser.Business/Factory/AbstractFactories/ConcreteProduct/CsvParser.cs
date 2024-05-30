@@ -1,29 +1,22 @@
-﻿using DataParser.Business.AbstractFactories.Contracts;
+﻿using DataParser.Business.AbstractFactories.Interface;
 using DataParser.Model;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DataParser.Business.AbstractFactories
 {
     public class CsvParser : IDataParser
     {
-        public async Task<IEnumerable<Person>> ParseData(IEnumerable<string> lines)
-        {
-            if (!lines.Any())
-            {
-                throw new Exception("CSV file is empty.");
-            }
-
+        public async Task<IEnumerable<Person>> ParseData(IEnumerable<string> lines, char delimeter)
+        {         
             lines = lines.Skip(1);
 
-            var personList = new ConcurrentBag<Person>();
+            var personList = new List<Person>();
             var parseTasks = lines.Select(line => Task.Run(() =>
             {
-                var person = ParseLineToPerson(line);
+                var person = ParseLineToPerson(line, delimeter);
                 personList.Add(person);
             }));
 
@@ -32,14 +25,9 @@ namespace DataParser.Business.AbstractFactories
             return personList;
         }
 
-        public Person ParseLineToPerson(string line)
+        public Person ParseLineToPerson(string line, char delimeter)
         {
-            var values = line.Split(',');
-
-            if (values.Length < 5)
-            {
-                throw new Exception("Invalid CSV format: Line has less than 5 fields.");
-            }
+            var values = line.Split(delimeter);
 
             return new Person
             {

@@ -1,4 +1,4 @@
-﻿using DataParser.Business.AbstractFactories.Contracts;
+﻿using DataParser.Business.AbstractFactories.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +17,11 @@ namespace DataParser.Business.AbstractFactories
         public IDataReader CreateDataReader()
         {
             return new CsvReader();
+        }
+
+        public IDataValidator CreateDataValidator(int fieldCount)
+        {
+            return new CsvValidator(fieldCount);
         }
     }
 }

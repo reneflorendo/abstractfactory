@@ -48,15 +48,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractFactories\Contracts\IDataParser.cs" />
-    <Compile Include="AbstractFactories\Contracts\IDataReader.cs" />
-    <Compile Include="AbstractFactories\CsvDataFactory.cs" />
-    <Compile Include="AbstractFactories\CsvParser.cs" />
-    <Compile Include="AbstractFactories\CsvReader.cs" />
-    <Compile Include="AbstractFactories\DataFactory.cs" />
-    <Compile Include="AbstractFactories\IDataFactory.cs" />
-    <Compile Include="AbstractFactories\XmlParser.cs" />
-    <Compile Include="AbstractFactories\XmlReader.cs" />
+    <Compile Include="Factory\AbstractFactories\ConcreteProduct\CsvValidator.cs" />
+    <Compile Include="Factory\AbstractFactories\AbstractProduct\IDataParser.cs" />
+    <Compile Include="Factory\AbstractFactories\AbstractProduct\IDataReader.cs" />
+    <Compile Include="Factory\AbstractFactories\ConcreteFatory\CsvDataFactory.cs" />
+    <Compile Include="Factory\AbstractFactories\ConcreteProduct\CsvParser.cs" />
+    <Compile Include="Factory\AbstractFactories\ConcreteProduct\CsvReader.cs" />
+    <Compile Include="Factory\AbstractFactories\ConcreteFatory\DataFactory.cs" />
+    <Compile Include="Factory\AbstractFactories\AbstractInterface\IDataFactory.cs" />
+    <Compile Include="Factory\AbstractFactories\AbstractProduct\IDataValidator.cs" />
+    <Compile Include="Factory\AbstractFactories\ConcreteProduct\ValidationRule\EmailValidationRule.cs" />
+    <Compile Include="Factory\AbstractFactories\ConcreteProduct\ValidationRule\FieldCountValidationRule.cs" />
+    <Compile Include="Factory\AbstractFactories\ConcreteProduct\ValidationRule\ICsvValidationRule.cs" />
+    <Compile Include="Factory\AbstractFactories\ConcreteProduct\XmlParser.cs" />
+    <Compile Include="Factory\AbstractFactories\ConcreteProduct\XmlReader.cs" />
     <Compile Include="Enums\DataParserType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
