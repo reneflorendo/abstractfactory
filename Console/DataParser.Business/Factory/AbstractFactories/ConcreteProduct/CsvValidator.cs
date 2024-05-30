@@ -8,7 +8,6 @@ namespace DataParser.Business.AbstractFactories
     public class CsvValidator : IDataValidator
     {
         private readonly List<ICsvValidationRule> _validationRules;
-        public int FieldCount { get; set; }
         public CsvValidator(int fieldCount)
         {
             _validationRules=new List<ICsvValidationRule>() {
